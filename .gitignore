@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+*.make
+*.cmake
+*.rsp
+*.includecache
+*.internal
+*.a
+*.obj
+*.rsp
+Makefile
+*.marks
