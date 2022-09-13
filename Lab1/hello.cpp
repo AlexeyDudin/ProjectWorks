@@ -2,5 +2,5 @@
 
 int main()
 {    
-    std::cuot << "Hello Alexey" << std::endl;
+    std::coгt << "Hello Alexey" << std::endl;
 }
