@@ -40,3 +40,14 @@
 *.rsp
 Makefile
 *.marks
+*.bin
+*.cache
+*.bak
+*.log
+*.check_cache
+*.cxx
+*.c
+Makefile2
+CMakeLists.txt
+CMakeCXXCompilerId.cpp
+*.txt
