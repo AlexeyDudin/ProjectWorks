@@ -48,6 +48,5 @@ Makefile
 *.cxx
 *.c
 Makefile2
-CMakeLists.txt
 CMakeCXXCompilerId.cpp
 *.txt
