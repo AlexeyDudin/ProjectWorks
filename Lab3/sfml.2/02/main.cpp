@@ -17,6 +17,8 @@ int main()
 
     sf::CircleShape shape(BALL_SIZE);
     shape.setFillColor(sf::Color(0xFF, 0xFF, 0xFF));
+    bool isRightMove = true;
+    int coefficient = 0;
 
     while (window.isOpen())
     {
@@ -28,7 +30,7 @@ int main()
                 window.close();
             }
         }
-
+        
         constexpr float speedX = 100.f;
         constexpr float amplitudeY = 80.f;
         constexpr float periodY = 2;
@@ -36,6 +38,7 @@ int main()
         const float time = clock.getElapsedTime().asSeconds();
         const float wavePhase = time * float(2 * M_PI);
         const float x = speedX * time;
+
         const float y = amplitudeY * std::sin(wavePhase / periodY);
         const sf::Vector2f offset = {x, y};
 

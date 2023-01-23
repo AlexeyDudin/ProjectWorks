@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\Road">
+      <UniqueIdentifier>{89099270-774c-441d-abbc-c215ff6b2539}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Information">
+      <UniqueIdentifier>{f7868716-93d0-427b-846e-9916353cb049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Information">
+      <UniqueIdentifier>{831b33d7-7c53-452b-9c49-56b3cded8573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Road">
+      <UniqueIdentifier>{23af1f9c-a612-4720-9c40-6931bb75ece9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Information.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedInfo.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Исходные файлы\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="Markup.cpp">
+      <Filter>Исходные файлы\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="Asphalt.cpp">
+      <Filter>Исходные файлы\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerInfo.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="World.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Файлы заголовков\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Asphalt.h">
+      <Filter>Файлы заголовков\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Markup.h">
+      <Filter>Файлы заголовков\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Information.h">
+      <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedInfo.h">
+      <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerInfo.h">
+      <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIAL.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIBLK.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALN.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALBD.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALBI.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALI.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALNB.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALNBI.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\..\..\..\WINDOWS\Fonts\ARIALNI.TTF">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\MainCar.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
