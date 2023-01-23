@@ -9,7 +9,7 @@ Information::~Information()
 {
 }
 
-void Information::Initialize(sf::RenderWindow& window)
+void Information::Initialize(sf::RenderWindow& window, LevelGenerator lg)
 {
 	obj.setFillColor(sf::Color::Black);
 	sf::Vector2f tmp = sf::Vector2f(window.getSize().x - (int)INFORMATION_WIDTH, 0);
@@ -20,6 +20,10 @@ void Information::Initialize(sf::RenderWindow& window)
 	speedInfo->Initialize(window, obj, 0);
 	timerInfo = new TimerInfo();
 	timerInfo->Initialize(window, obj, 100);
+	level = new LevelInfo();
+	level->Initialize(window, obj, lg.GetLevel());
+	distantionInfo = new DistantionInfo();
+	distantionInfo->Initialize(window, obj, lg.GetDistantion());
 	window.draw(obj);
 }
 
@@ -28,6 +32,8 @@ void Information::Render(sf::RenderWindow& window)
 	window.draw(obj);
 	speedInfo->Render(window);
 	timerInfo->Render(window);
+	level->Render(window);
+	distantionInfo->Render(window);
 }
 
 void Information::UpdateSpeed(float speed)
@@ -38,4 +44,9 @@ void Information::UpdateSpeed(float speed)
 void Information::UpdateTimer(float time)
 {
 	timerInfo->Update((int)time);
+}
+
+void Information::UpdateDistantion(long distantion)
+{
+	distantionInfo->Update(distantion);
 }

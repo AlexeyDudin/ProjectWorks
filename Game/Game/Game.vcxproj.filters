@@ -54,6 +54,15 @@
     <ClCompile Include="TimerInfo.cpp">
       <Filter>Исходные файлы\Information</Filter>
     </ClCompile>
+    <ClCompile Include="LevelGenerator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelInfo.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="DistantionInfo.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -81,6 +90,15 @@
       <Filter>Файлы заголовков\Information</Filter>
     </ClInclude>
     <ClInclude Include="TimerInfo.h">
+      <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGenerator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelInfo.h">
+      <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="DistantionInfo.h">
       <Filter>Файлы заголовков\Information</Filter>
     </ClInclude>
   </ItemGroup>

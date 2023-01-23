@@ -8,9 +8,9 @@ int main()
 
     World* world = new World();
     world->Initialize(window);
+
     sf::Clock clock;
     sf::Clock timer;
-    int levelTime = 100;
     float startGameTime = 0;
 
     while (window.isOpen())
@@ -34,11 +34,12 @@ int main()
         { 
             float dt = clock.getElapsedTime().asSeconds();
             startGameTime += timer.getElapsedTime().asSeconds();
+
+            timer.restart(); 
             clock.restart();
-            timer.restart();
 
             window.clear();
-            world->Update(event, dt, levelTime - (int)startGameTime);
+            world->Update(event, dt, startGameTime);
             world->Render(window);
         }
         else

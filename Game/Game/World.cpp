@@ -15,17 +15,24 @@ void World::Initialize(sf::RenderWindow& window)
 	road->Initialize(window);
     car = new Car();
     car->Initialize(window);
+
     info = new Information();
-    info->Initialize(window);
+
+    level = new LevelGenerator();
+    level->Initialize();
+
+    info->Initialize(window, *level);
 }
 
 void World::Update(sf::Event event, float time, float timer)
 {
+    level->UpdateDistantion(road->GetSpeed(), time);
     car->Update(event, time);
     road->CheckCarPosition(*car, time);
     road->Update(event, time);
     info->UpdateSpeed(road->GetSpeed());
-    info->UpdateTimer(timer);
+    info->UpdateTimer(level->GetTimeToEnd() - (int)timer);
+    info->UpdateDistantion(level->GetDistantion());
 }
 
 void World::Render(sf::RenderWindow& window)
