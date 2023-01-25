@@ -10,9 +10,7 @@ LevelGenerator::~LevelGenerator()
 
 void LevelGenerator::Initialize()
 {
-	currentLevel = 1;
-	timeToEnd = 100;
-	distantion = 100000;
+	ResetToDefault();
 }
 
 void LevelGenerator::LevelUp()
@@ -27,6 +25,7 @@ void LevelGenerator::LevelUp()
 	{
 		distantion += 20000;
 	}
+	runnedDistantion = distantion;
 }
 
 int LevelGenerator::GetTimeToEnd()
@@ -34,9 +33,17 @@ int LevelGenerator::GetTimeToEnd()
 	return timeToEnd;
 }
 
+void LevelGenerator::ResetToDefault()
+{
+	currentLevel = 1;
+	timeToEnd = 100;
+	distantion = 10000;
+	runnedDistantion = distantion;
+}
+
 long LevelGenerator::GetDistantion()
 {
-	return distantion;
+	return runnedDistantion;
 }
 
 int LevelGenerator::GetLevel()
@@ -46,5 +53,5 @@ int LevelGenerator::GetLevel()
 
 void LevelGenerator::UpdateDistantion(float speed, float deltaTime)
 {
-	distantion -= speed * deltaTime;
+	runnedDistantion -= speed * deltaTime;
 }

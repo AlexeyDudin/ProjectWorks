@@ -56,9 +56,12 @@ void Road::SpeedDown(float dt)
 
 void Road::UpdateMarkups(float time)
 {
-	for (int i = 0; i < markups.size(); i++)
+	if (canMove)
 	{
-		markups[i].Update(speed, time);
+		for (int i = 0; i < markups.size(); i++)
+		{
+			markups[i].Update(speed, time);
+		}
 	}
 }
 
@@ -109,4 +112,14 @@ void Road::CheckCarPosition(Car car, float deltaTime)
 float Road::GetSpeed()
 {
 	return speed;
+}
+
+void Road::CanMove(bool state)
+{
+	canMove = state;
+}
+
+void Road::ResetSpeed()
+{
+	speed = 0;
 }

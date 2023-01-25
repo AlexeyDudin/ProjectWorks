@@ -24,4 +24,5 @@ public:
 	void UpdateSpeed(float speed);
 	void UpdateTimer(float time);
 	void UpdateDistantion(long distantion);
+	void UpdateLevel(int level);
 };

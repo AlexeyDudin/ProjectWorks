@@ -39,9 +39,8 @@ void Car::Initialize(sf::RenderWindow& window)
 {
     //obj.setFillColor(carColor);
     obj.setSize(carSize);
-    sf::Vector2f position = { (float)(window.getSize().x / 2), (float)(window.getSize().y - carSize.y) };
-    obj.setPosition(position);
-    carTexture.loadFromFile("C:\\Labs\\ProjectWorks\\\Game\\Game\\Resources\\MainCar.png");
+    SetDefaultCarPosition(window);
+    carTexture.loadFromFile("C:\\Labs\\ProjectWorks\\Game\\Game\\Resources\\MainCar.png");
     carTexture.setSmooth(true);
     obj.setTexture(&carTexture, false);
     window.draw(obj);
@@ -72,4 +71,19 @@ sf::Vector2f Car::GetCarPosition()
 sf::Vector2f Car::GetCarSize()
 {
     return obj.getSize();
+}
+
+void Car::MoveUp(float speed, float deltaTime)
+{
+    sf::Vector2f currPos = obj.getPosition();
+    currPos.y -= speed * deltaTime;
+    if (currPos.y < -obj.getSize().y)
+        currPos.y = -obj.getSize().y;
+    obj.setPosition(currPos);
+}
+
+void Car::SetDefaultCarPosition(sf::RenderWindow& window)
+{
+    sf::Vector2f position = { (float)(window.getSize().x / 2), (float)(window.getSize().y - carSize.y) };
+    obj.setPosition(position);
 }

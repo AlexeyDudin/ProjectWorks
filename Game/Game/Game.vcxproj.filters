@@ -25,6 +25,18 @@
     <Filter Include="Исходные файлы\Road">
       <UniqueIdentifier>{23af1f9c-a612-4720-9c40-6931bb75ece9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\SoundEffect">
+      <UniqueIdentifier>{0794baf4-0580-419d-802e-87313ae44124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\SoundEffect">
+      <UniqueIdentifier>{d9932978-0adf-427b-bd83-6ddfa32d2248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Enemies">
+      <UniqueIdentifier>{c09a6292-fcfa-42b5-97f3-27823b28201b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Enemies">
+      <UniqueIdentifier>{304e15e0-aa25-4435-9b09-e7e1e40ff76c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,6 +74,15 @@
     </ClCompile>
     <ClCompile Include="DistantionInfo.cpp">
       <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="CarEngine.cpp">
+      <Filter>Исходные файлы\SoundEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Исходные файлы\SoundEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="CarEnemie.cpp">
+      <Filter>Исходные файлы\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +122,15 @@
     <ClInclude Include="DistantionInfo.h">
       <Filter>Файлы заголовков\Information</Filter>
     </ClInclude>
+    <ClInclude Include="CarEngine.h">
+      <Filter>Файлы заголовков\SoundEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Файлы заголовков\SoundEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="CarEnemie.h">
+      <Filter>Файлы заголовков\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\..\..\WINDOWS\Fonts\ARIAL.TTF">
@@ -135,5 +165,19 @@
     <Image Include="Resources\MainCar.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="Resources\EnemieCar.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Resources\TimerCar.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\smb_stage_clear.wav">
+      <Filter>Файлы ресурсов</Filter>
+    </Media>
+    <Media Include="Resources\smb_mariodie.wav">
+      <Filter>Файлы ресурсов</Filter>
+    </Media>
   </ItemGroup>
 </Project>

@@ -3,6 +3,8 @@
 #include "Car.h"
 #include "Information.h"
 #include "LevelGenerator.h"
+#include "CarEngine.h"
+#include "Level.h"
 
 class World
 {
@@ -11,11 +13,20 @@ private:
 	Car* car;
 	Information* info;
 	LevelGenerator* level;
+	CarEngineSound* carEngineSound;
+	LevelSound* levelSound;
 public:
 	World();
 	~World();
 
+	bool isLevelComplete = false;
+	bool isGameOver = false;
 	void Initialize(sf::RenderWindow& window);
 	void Update(sf::Event event, float time, float timer);
 	void Render(sf::RenderWindow& window);
+	void IncrementLevel();
+	void EnableSound();
+	void DisableSound();
+	void ResetLevel();
+	void CheckTimer(float timer);
 };

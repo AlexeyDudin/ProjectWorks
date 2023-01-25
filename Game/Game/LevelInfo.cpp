@@ -34,3 +34,8 @@ void LevelInfo::Render(sf::RenderWindow& window)
 {
     window.draw(text);
 }
+
+void LevelInfo::Update(int level)
+{
+    text.setString(L"Уровень " + std::to_wstring(level));
+}

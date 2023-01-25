@@ -46,7 +46,13 @@ void Information::UpdateTimer(float time)
 	timerInfo->Update((int)time);
 }
 
+
 void Information::UpdateDistantion(long distantion)
 {
 	distantionInfo->Update(distantion);
+}
+
+void Information::UpdateLevel(int levelCount)
+{
+	level->Update(levelCount);
 }

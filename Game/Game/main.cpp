@@ -26,6 +26,14 @@ int main()
                 if (event.key.code == sf::Keyboard::Space)
                 {
                     isGameStarted = !isGameStarted;
+                    if (isGameStarted)
+                    {
+                        world->EnableSound();
+                    }
+                    else
+                    {
+                        world->DisableSound();
+                    }
                     timer.restart();
                 }
             }
@@ -41,6 +49,24 @@ int main()
             window.clear();
             world->Update(event, dt, startGameTime);
             world->Render(window);
+            if (world->isLevelComplete)
+            {
+                isGameStarted = false;
+                world->IncrementLevel();
+                timer.restart();
+                clock.restart();
+                startGameTime = 0;
+                world->DisableSound();
+            }
+            else if (world->isGameOver)
+            {
+                isGameStarted = false;
+                world->ResetLevel();
+                timer.restart();
+                clock.restart();
+                startGameTime = 0;
+                world->DisableSound();
+            }
         }
         else
         {

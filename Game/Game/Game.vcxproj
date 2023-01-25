@@ -137,8 +137,11 @@
   <ItemGroup>
     <ClCompile Include="Asphalt.cpp" />
     <ClCompile Include="Car.cpp" />
+    <ClCompile Include="CarEnemie.cpp" />
+    <ClCompile Include="CarEngine.cpp" />
     <ClCompile Include="DistantionInfo.cpp" />
     <ClCompile Include="Information.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="LevelInfo.cpp" />
     <ClCompile Include="main.cpp" />
@@ -151,9 +154,12 @@
   <ItemGroup>
     <ClInclude Include="Asphalt.h" />
     <ClInclude Include="Car.h" />
+    <ClInclude Include="CarEnemie.h" />
+    <ClInclude Include="CarEngine.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DistantionInfo.h" />
     <ClInclude Include="Information.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="LevelInfo.h" />
     <ClInclude Include="Markup.h" />
@@ -177,7 +183,21 @@
     <Font Include="..\..\..\..\WINDOWS\Fonts\ARIBLK.TTF" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\MainCar.png" />
+    <Image Include="Resources\EnemieCar.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Resources\MainCar.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Resources\TimerCar.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\smb_mariodie.wav" />
+    <Media Include="Resources\smb_stage_clear.wav">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

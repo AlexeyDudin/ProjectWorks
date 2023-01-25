@@ -13,4 +13,5 @@ public:
 
 	void Initialize(sf::RenderWindow& window, sf::RectangleShape parent, int level);
 	void Render(sf::RenderWindow& window);
+	void Update(int level);
 };

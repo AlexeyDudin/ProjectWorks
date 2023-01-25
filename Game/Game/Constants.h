@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 const unsigned int WINDOW_HEIGHT = 800;
-const unsigned int WINDOW_WIDTH = 800;
+const unsigned int WINDOW_WIDTH = 1000;
 
 const unsigned int ROAD_WIDTH = 300;
 const unsigned int markupCount = 5;
@@ -24,4 +24,4 @@ const sf::Color carColor = sf::Color(0xa0, 0x10, 0x10);
 const sf::Vector2f carSize = { 30, 50 };
 const int carMove = 200;
 
-const unsigned int INFORMATION_WIDTH = 200;
+const unsigned int INFORMATION_WIDTH = 300;

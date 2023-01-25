@@ -10,6 +10,7 @@ class Road
 private:
 	Asphalt* asphalt;
 	std::vector<Markup> markups;
+	bool canMove = true;
 	void SpeedUp(float dt);
 	void SpeedDown(float dt);
 	void UpdateMarkups(float time);
@@ -23,4 +24,6 @@ public:
 	void Render(sf::RenderWindow& window);
 	void CheckCarPosition(Car car, float deltaTime);
 	float GetSpeed();
+	void CanMove(bool state);
+	void ResetSpeed();
 };
