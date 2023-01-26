@@ -19,11 +19,11 @@ void LevelGenerator::LevelUp()
 	if (currentLevel % 5 == 0)
 	{
 		timeToEnd -= 10;
-		distantion -= 10000;
+		distantion -= 50000;
 	}
 	else
 	{
-		distantion += 20000;
+		distantion += 10000;
 	}
 	runnedDistantion = distantion;
 }
@@ -37,7 +37,7 @@ void LevelGenerator::ResetToDefault()
 {
 	currentLevel = 1;
 	timeToEnd = 100;
-	distantion = 10000;
+	distantion = 40000;
 	runnedDistantion = distantion;
 }
 

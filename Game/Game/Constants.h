@@ -25,3 +25,6 @@ const sf::Vector2f carSize = { 30, 50 };
 const int carMove = 200;
 
 const unsigned int INFORMATION_WIDTH = 300;
+
+enum CarMove {turnLeft, turnRight, dontMove};
+enum RoadMove {speedUp, speedDown};

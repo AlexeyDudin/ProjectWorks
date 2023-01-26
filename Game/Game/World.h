@@ -5,6 +5,7 @@
 #include "LevelGenerator.h"
 #include "CarEngine.h"
 #include "Level.h"
+#include "EnemieGenerator.h"
 
 class World
 {
@@ -15,6 +16,8 @@ private:
 	LevelGenerator* level;
 	CarEngineSound* carEngineSound;
 	LevelSound* levelSound;
+	EnemieGenerator* enemieGenerator;
+	void CheckCarCollision();
 public:
 	World();
 	~World();

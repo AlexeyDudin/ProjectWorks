@@ -9,7 +9,7 @@ class Road
 {
 private:
 	Asphalt* asphalt;
-	std::vector<Markup> markups;
+	std::vector<Markup*> markups;
 	bool canMove = true;
 	void SpeedUp(float dt);
 	void SpeedDown(float dt);
@@ -26,4 +26,6 @@ public:
 	float GetSpeed();
 	void CanMove(bool state);
 	void ResetSpeed();
+	void ResetMarkups(sf::RenderWindow& window);
+	void CollisionEvent(RoadMove roadMove);
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "iostream"
+#include "Constants.h"
 
 class Car 
 {
@@ -9,6 +10,7 @@ private:
 	void MoveRight(float time);
 	sf::RectangleShape obj;
 	sf::Texture carTexture;
+	unsigned int health;
 public:
 	Car();
 	~Car();
@@ -20,4 +22,8 @@ public:
 	sf::Vector2f GetCarSize();
 	void MoveUp(float speed, float deltaTime);
 	void SetDefaultCarPosition(sf::RenderWindow& window);
+	void CollisionEvent(CarMove carMove);
+	bool IsHealthEnd();
+	unsigned int GetHealth();
+	void ResetHealth();
 };

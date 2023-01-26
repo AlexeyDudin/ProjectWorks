@@ -1,5 +1,4 @@
 #include "Car.h"
-#include "Constants.h"
 
 void Car::MoveLeft(float time)
 {
@@ -37,6 +36,7 @@ Car::~Car()
 
 void Car::Initialize(sf::RenderWindow& window)
 {
+    health = 100;
     //obj.setFillColor(carColor);
     obj.setSize(carSize);
     SetDefaultCarPosition(window);
@@ -86,4 +86,32 @@ void Car::SetDefaultCarPosition(sf::RenderWindow& window)
 {
     sf::Vector2f position = { (float)(window.getSize().x / 2), (float)(window.getSize().y - carSize.y) };
     obj.setPosition(position);
+}
+
+void Car::CollisionEvent(CarMove carMove)
+{
+    health -= 20;
+    if (carMove == turnLeft)
+    {
+        MoveLeft(0.2f);
+    }
+    else if (carMove == turnRight)
+    {
+        MoveRight(0.2f);
+    }
+}
+
+bool Car::IsHealthEnd()
+{
+    return (health == 0);
+}
+
+unsigned int Car::GetHealth()
+{
+    return health;
+}
+
+void Car::ResetHealth()
+{
+    health = 100;
 }

@@ -10,9 +10,9 @@ Road::Road()
 Road::~Road()
 {
 	asphalt->~Asphalt();
-	for (int i = 0; i < markupCount; i++)
+	for (int i = 0; i < markups.size(); i++)
 	{
-		markups[i].~Markup();
+		markups[i]->~Markup();
 	}
 }
 
@@ -20,14 +20,7 @@ void Road::Initialize(sf::RenderWindow& window)
 {
 	asphalt = new Asphalt();
 	asphalt->Initialize(window, ROAD_WIDTH);
-	int startPosition = 0;
-	for (int i = 0; i < markupCount; i++)
-	{
-		Markup* markup = new Markup();
-		startPosition = i * (window.getSize().y + markupSize.y) / markupCount;
-		markup->Initialize(window, { (float)(window.getSize().x / 2), (float)startPosition });
-		markups.push_back(*markup);
-	}
+	ResetMarkups(window);
 }
 
 void Road::SpeedUp(float dt)
@@ -60,7 +53,7 @@ void Road::UpdateMarkups(float time)
 	{
 		for (int i = 0; i < markups.size(); i++)
 		{
-			markups[i].Update(speed, time);
+			markups[i]->Update(speed, time);
 		}
 	}
 }
@@ -92,7 +85,7 @@ void Road::Render(sf::RenderWindow& window)
 	asphalt->Render(window);
 	for (int i = 0; i < markupCount; i++)
 	{
-		markups[i].Render(window);
+		markups[i]->Render(window);
 	}
 }
 
@@ -122,4 +115,33 @@ void Road::CanMove(bool state)
 void Road::ResetSpeed()
 {
 	speed = 0;
+}
+
+void Road::ResetMarkups(sf::RenderWindow& window)
+{
+	while (markups.size() > 0)
+	{
+		delete(markups[markups.size() - 1]);
+		markups.pop_back();
+	}
+	int startPosition = 0;
+	for (int i = 0; i < markupCount; i++)
+	{
+		Markup* markup = new Markup();
+		startPosition = i * (window.getSize().y + markupSize.y) / markupCount;
+		markup->Initialize(window, { (float)(window.getSize().x / 2), (float)startPosition });
+		markups.push_back(markup);
+	}
+}
+
+void Road::CollisionEvent(RoadMove roadMove)
+{
+	if (roadMove == speedUp)
+	{
+		SpeedUp(1.0f);
+	}
+	else if (roadMove == speedDown)
+	{
+		SpeedDown(1.0f);
+	}
 }

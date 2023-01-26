@@ -24,7 +24,11 @@ void Information::Initialize(sf::RenderWindow& window, LevelGenerator lg)
 	level->Initialize(window, obj, lg.GetLevel());
 	distantionInfo = new DistantionInfo();
 	distantionInfo->Initialize(window, obj, lg.GetDistantion());
+	healthInfo = new HealthInfo();
+	healthInfo->Initialize(window, obj, 100);
+
 	window.draw(obj);
+	
 }
 
 void Information::Render(sf::RenderWindow& window)
@@ -34,6 +38,7 @@ void Information::Render(sf::RenderWindow& window)
 	timerInfo->Render(window);
 	level->Render(window);
 	distantionInfo->Render(window);
+	healthInfo->Render(window);
 }
 
 void Information::UpdateSpeed(float speed)
@@ -55,4 +60,9 @@ void Information::UpdateDistantion(long distantion)
 void Information::UpdateLevel(int levelCount)
 {
 	level->Update(levelCount);
+}
+
+void Information::UpdateHealth(unsigned int health)
+{
+	healthInfo->Update(health);
 }

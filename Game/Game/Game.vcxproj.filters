@@ -84,6 +84,12 @@
     <ClCompile Include="CarEnemie.cpp">
       <Filter>Исходные файлы\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="EnemieGenerator.cpp">
+      <Filter>Исходные файлы\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthInfo.cpp">
+      <Filter>Исходные файлы\Information</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -130,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="CarEnemie.h">
       <Filter>Файлы заголовков\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemieGenerator.h">
+      <Filter>Файлы заголовков\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthInfo.h">
+      <Filter>Файлы заголовков\Information</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

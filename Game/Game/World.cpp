@@ -1,6 +1,69 @@
 #include "World.h"
 #include "Constants.h"
 
+bool InRange(float min, float max, float pos)
+{
+    return (min <= pos && pos <= max);
+}
+
+void World::CheckCarCollision()
+{
+    vector<CarEnemie*> enemies = enemieGenerator->GetCarEnemies();
+    sf::Vector2f mainCarPosition = car->GetCarPosition();
+
+    std::srand(std::time(nullptr));
+    for (int i = 0; i < enemies.size(); i++)
+    {
+        sf::Vector2f enemieCarPosition = enemies[i]->GetCarPosition();
+        int carX1 = mainCarPosition.x;
+        int carX2 = mainCarPosition.x + carSize.x;
+        int carY1 = mainCarPosition.y;
+        int carY2 = mainCarPosition.y + carSize.y;
+        if ( ((carX2 >= enemieCarPosition.x && carX2 <= enemieCarPosition.x + carSize.x) && 
+              (carY2 >= enemieCarPosition.y && carY2 <= enemieCarPosition.y + carSize.y)) ||
+             ((carX1 <= enemieCarPosition.x + carSize.x && carX1 >= enemieCarPosition.x) &&
+              (carY1 <= enemieCarPosition.y + carSize.y && carY1 >= enemieCarPosition.y))
+           )
+        {
+            if (InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, carX2))
+            {
+                car->CollisionEvent(turnLeft);
+            }
+            else if (InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, carX1))
+            {
+                car->CollisionEvent(turnRight);
+            }
+            if (InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, carY1))
+            {
+                road->CollisionEvent(speedDown);
+            }
+            else if (InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, carY2))
+            {
+                road->CollisionEvent(speedDown);
+            }
+        }
+        /*if ((InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, mainCarPosition.x) || InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, mainCarPosition.x + carSize.x)) &&
+            (InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, mainCarPosition.y) || InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, mainCarPosition.y + carSize.y)))
+        {
+            if (mainCarPosition.x + carSize.x <= enemieCarPosition.x)
+            {
+                car->CollisionEvent(turnLeft);
+            }
+            else if (enemieCarPosition.x + carSize.x <= mainCarPosition.x)
+            {
+                car->CollisionEvent(turnRight);
+            }
+            if (mainCarPosition.y >= enemieCarPosition.y + carSize.y)
+            {
+                road->CollisionEvent(speedDown);
+            }
+            else if (enemieCarPosition.y >= mainCarPosition.y + carSize.y)
+            {
+                road->CollisionEvent(speedUp);
+            }
+        }*/
+    }
+}
 
 World::World()
 {
@@ -33,6 +96,9 @@ void World::Initialize(sf::RenderWindow& window)
 
     levelSound = new LevelSound();
     levelSound->Initialize();
+
+    enemieGenerator = new EnemieGenerator();
+    enemieGenerator->Initialize(window);
 }
 
 void World::Update(sf::Event event, float time, float timer)
@@ -59,6 +125,16 @@ void World::Update(sf::Event event, float time, float timer)
 
     carEngineSound->Update(road->GetSpeed());
     CheckTimer(timer);
+
+    enemieGenerator->Update(road->GetSpeed(), time);
+    CheckCarCollision();
+
+    if (car->IsHealthEnd())
+    {
+        isGameOver = true;
+    }
+
+    info->UpdateHealth(car->GetHealth());
 }
 
 void World::Render(sf::RenderWindow& window)
@@ -66,6 +142,7 @@ void World::Render(sf::RenderWindow& window)
 	road->Render(window);
     car->Render(window);
     info->Render(window);
+    enemieGenerator->Render(window);
 }
 
 void World::IncrementLevel()
@@ -75,6 +152,9 @@ void World::IncrementLevel()
     car->SetDefaultCarPosition(*local);
     isLevelComplete = false;
     road->CanMove(true);
+    road->ResetMarkups(*local);
+    enemieGenerator->CleanEnemies();
+
 }
 
 void World::EnableSound()
@@ -93,6 +173,10 @@ void World::ResetLevel()
     levelSound->PlayDieSound();
     road->ResetSpeed();
     car->SetDefaultCarPosition(*local);
+    isGameOver = false;
+    road->ResetMarkups(*local);
+    enemieGenerator->CleanEnemies();
+    car->ResetHealth();
 }
 
 void World::CheckTimer(float timer)
