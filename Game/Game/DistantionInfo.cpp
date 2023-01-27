@@ -37,5 +37,5 @@ void DistantionInfo::Render(sf::RenderWindow& window)
 
 void DistantionInfo::Update(long distantion)
 {
-    text.setString(L"Осталось: " + std::to_wstring(distantion) + L" метров");
+    text.setString(L"Осталось: " + std::to_wstring(distantion / 10) + L" метров");
 }

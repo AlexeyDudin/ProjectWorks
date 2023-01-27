@@ -1,4 +1,5 @@
 #include "LevelGenerator.h"
+#include "EnemieGenerator.h"
 
 LevelGenerator::LevelGenerator()
 {
@@ -13,8 +14,9 @@ void LevelGenerator::Initialize()
 	ResetToDefault();
 }
 
-void LevelGenerator::LevelUp()
+void LevelGenerator::LevelUp(void *enemieGenerator)
 {
+	enemieGenerator;
 	currentLevel++;
 	if (currentLevel % 5 == 0)
 	{
@@ -24,6 +26,10 @@ void LevelGenerator::LevelUp()
 	else
 	{
 		distantion += 10000;
+	}
+	if (currentLevel % 7 == 0)
+	{
+		((EnemieGenerator*)enemieGenerator)->IncrementCountOfenemies();
 	}
 	runnedDistantion = distantion;
 }

@@ -18,6 +18,8 @@ private:
 	LevelSound* levelSound;
 	EnemieGenerator* enemieGenerator;
 	void CheckCarCollision();
+	void CheckCarHealerCollision(float &timer);
+	sf::RectangleShape obj;
 public:
 	World();
 	~World();
@@ -25,7 +27,7 @@ public:
 	bool isLevelComplete = false;
 	bool isGameOver = false;
 	void Initialize(sf::RenderWindow& window);
-	void Update(sf::Event event, float time, float timer);
+	void Update(sf::Event event, float time, float &timer);
 	void Render(sf::RenderWindow& window);
 	void IncrementLevel();
 	void EnableSound();

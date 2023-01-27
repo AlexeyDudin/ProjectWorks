@@ -13,7 +13,7 @@ public:
 	~LevelGenerator();
 
 	void Initialize();
-	void LevelUp();
+	void LevelUp(void* enemieGenerator);
 	int GetTimeToEnd();
 	void ResetToDefault();
 	long GetDistantion();

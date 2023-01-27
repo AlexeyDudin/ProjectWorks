@@ -1,17 +1,12 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "CarInterface.h"
-#include "Constants.h"
 
-class CarEnemie: public CarInterface
+class HealerCarEnemie: public CarInterface
 {
-private:
-	void MoveLeft(float time);
-	void MoveRight(float time);
-	EnemieLevel level;
-	CarMove carMove;
 public:
-	CarEnemie();
-	~CarEnemie();
+	HealerCarEnemie();
+	~HealerCarEnemie();
 
 	void Initialize(sf::RenderWindow& window);
 	void ReInitStartPosition();

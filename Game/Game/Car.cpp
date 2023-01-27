@@ -115,3 +115,10 @@ void Car::ResetHealth()
 {
     health = 100;
 }
+
+void Car::IncrementHealth()
+{
+    health += 20;
+    if (health > 100)
+        health = 100;
+}

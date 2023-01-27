@@ -26,4 +26,5 @@ public:
 	bool IsHealthEnd();
 	unsigned int GetHealth();
 	void ResetHealth();
+	void IncrementHealth();
 };

@@ -42,26 +42,37 @@ void World::CheckCarCollision()
                 road->CollisionEvent(speedDown);
             }
         }
-        /*if ((InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, mainCarPosition.x) || InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, mainCarPosition.x + carSize.x)) &&
-            (InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, mainCarPosition.y) || InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, mainCarPosition.y + carSize.y)))
+    }
+}
+
+void World::CheckCarHealerCollision(float& timer)
+{
+    HealerCarEnemie* healerCar = enemieGenerator->GetHealerCar();
+    sf::Vector2f mainCarPosition = car->GetCarPosition();
+
+    if (healerCar != NULL)
+    {
+        sf::Vector2f enemieCarPosition = healerCar->GetCarPosition();
+        int carX1 = mainCarPosition.x;
+        int carX2 = mainCarPosition.x + carSize.x;
+        int carY1 = mainCarPosition.y;
+        int carY2 = mainCarPosition.y + carSize.y;
+        if (((carX2 >= enemieCarPosition.x && carX2 <= enemieCarPosition.x + carSize.x) &&
+            (carY2 >= enemieCarPosition.y && carY2 <= enemieCarPosition.y + carSize.y)) ||
+            ((carX1 <= enemieCarPosition.x + carSize.x && carX1 >= enemieCarPosition.x) &&
+                (carY1 <= enemieCarPosition.y + carSize.y && carY1 >= enemieCarPosition.y))
+            )
         {
-            if (mainCarPosition.x + carSize.x <= enemieCarPosition.x)
+            if (InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, carX2) || 
+                InRange(enemieCarPosition.x, enemieCarPosition.x + carSize.x, carX1) ||
+                InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, carY1) ||
+                InRange(enemieCarPosition.y, enemieCarPosition.y + carSize.y, carY2))
             {
-                car->CollisionEvent(turnLeft);
+                timer -= 10;
+                car->IncrementHealth();
+                enemieGenerator->DestroyHealerCar();
             }
-            else if (enemieCarPosition.x + carSize.x <= mainCarPosition.x)
-            {
-                car->CollisionEvent(turnRight);
-            }
-            if (mainCarPosition.y >= enemieCarPosition.y + carSize.y)
-            {
-                road->CollisionEvent(speedDown);
-            }
-            else if (enemieCarPosition.y >= mainCarPosition.y + carSize.y)
-            {
-                road->CollisionEvent(speedUp);
-            }
-        }*/
+        }
     }
 }
 
@@ -101,7 +112,7 @@ void World::Initialize(sf::RenderWindow& window)
     enemieGenerator->Initialize(window);
 }
 
-void World::Update(sf::Event event, float time, float timer)
+void World::Update(sf::Event event, float time, float &timer)
 {
     level->UpdateDistantion(road->GetSpeed(), time);
     if (level->GetDistantion() <= (long)WINDOW_HEIGHT)
@@ -128,6 +139,7 @@ void World::Update(sf::Event event, float time, float timer)
 
     enemieGenerator->Update(road->GetSpeed(), time);
     CheckCarCollision();
+    CheckCarHealerCollision(timer);
 
     if (car->IsHealthEnd())
     {
@@ -147,14 +159,14 @@ void World::Render(sf::RenderWindow& window)
 
 void World::IncrementLevel()
 {
-    level->LevelUp();
+    level->LevelUp(enemieGenerator);
     road->ResetSpeed();
     car->SetDefaultCarPosition(*local);
     isLevelComplete = false;
     road->CanMove(true);
     road->ResetMarkups(*local);
     enemieGenerator->CleanEnemies();
-
+    car->ResetHealth();
 }
 
 void World::EnableSound()

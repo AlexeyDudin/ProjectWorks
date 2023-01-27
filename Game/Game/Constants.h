@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 #include <SFML/Graphics.hpp>
 
 const unsigned int WINDOW_HEIGHT = 800;
@@ -23,8 +25,12 @@ const sf::Color asphaltColor = sf::Color(0x80, 0x80, 0x80);
 const sf::Color carColor = sf::Color(0xa0, 0x10, 0x10);
 const sf::Vector2f carSize = { 30, 50 };
 const int carMove = 200;
+const int enemieMove = 100;
 
 const unsigned int INFORMATION_WIDTH = 300;
 
 enum CarMove {turnLeft, turnRight, dontMove};
 enum RoadMove {speedUp, speedDown};
+enum EnemieLevel {newbee = 0, middle = 1, profi = 2};
+
+#endif // !CONSTANTS_H

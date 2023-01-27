@@ -90,6 +90,9 @@
     <ClCompile Include="HealthInfo.cpp">
       <Filter>Исходные файлы\Information</Filter>
     </ClCompile>
+    <ClCompile Include="HealerCarEnemie.cpp">
+      <Filter>Исходные файлы\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -142,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="HealthInfo.h">
       <Filter>Файлы заголовков\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="HealerCarEnemie.h">
+      <Filter>Файлы заголовков\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="CarInterface.h">
+      <Filter>Файлы заголовков\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

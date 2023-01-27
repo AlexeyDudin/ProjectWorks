@@ -141,6 +141,7 @@
     <ClCompile Include="CarEngine.cpp" />
     <ClCompile Include="DistantionInfo.cpp" />
     <ClCompile Include="EnemieGenerator.cpp" />
+    <ClCompile Include="HealerCarEnemie.cpp" />
     <ClCompile Include="HealthInfo.cpp" />
     <ClCompile Include="Information.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -158,9 +159,11 @@
     <ClInclude Include="Car.h" />
     <ClInclude Include="CarEnemie.h" />
     <ClInclude Include="CarEngine.h" />
+    <ClInclude Include="CarInterface.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="DistantionInfo.h" />
     <ClInclude Include="EnemieGenerator.h" />
+    <ClInclude Include="HealerCarEnemie.h" />
     <ClInclude Include="HealthInfo.h" />
     <ClInclude Include="Information.h" />
     <ClInclude Include="Level.h" />
